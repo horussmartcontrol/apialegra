@@ -1,0 +1,6 @@
+@ApiAlegra_HostAddress = http://localhost:5051
+
+GET {{ApiAlegra_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

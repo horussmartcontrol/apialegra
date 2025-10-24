@@ -52,3 +52,11 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+
+# Archivos y carpetas del entorno de Visual Studio
+.vs/
+*.user
+*.suo
+*.vscode/
+bin/
+obj/
