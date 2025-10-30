@@ -89,9 +89,6 @@ namespace ApiAlegra.Dto.Request
         [JsonPropertyName("fiscalResponsabilities")]
         public List<object>? FiscalResponsabilities { get; set; }
 
-        [JsonPropertyName("settings")]
-        public Settings? Settings { get; set; }
-
         [JsonPropertyName("enableHealthSector")]
         public bool? EnableHealthSector { get; set; }
 

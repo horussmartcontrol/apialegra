@@ -49,7 +49,7 @@ namespace ApiAlegra.Service
             }
             catch (HttpRequestException ex) when (ex.InnerException is SocketException)
             {
-                return (false, null, "No tienes conexión a internet o no se pudo resolver el host.");
+                return (false, null, $"No tienes conexión a internet o no se pudo resolver el host. {ex.Message}");
             }
             catch (HttpRequestException ex)
             {
@@ -99,7 +99,7 @@ namespace ApiAlegra.Service
             }
             catch (HttpRequestException ex) when (ex.InnerException is SocketException)
             {
-                return (false, null, "No tienes conexión a internet o no se pudo resolver el host.");
+                return (false, null, $"No tienes conexión a internet o no se pudo resolver el host. {ex.Message}");
             }
             catch (HttpRequestException ex)
             {

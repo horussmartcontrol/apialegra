@@ -17,8 +17,8 @@ namespace ApiAlegra.Controllers
         }
 
 
-        [HttpPost("crear")]
-        public async Task<IActionResult> CrearCliente(
+        [HttpPost("crear/persona")]
+        public async Task<IActionResult> CrearPersona(
             [FromHeader] string usuario,
             [FromHeader] string token,
             [FromBody] CrearClienteRequest RequestCliente)
@@ -43,6 +43,35 @@ namespace ApiAlegra.Controllers
             }
 
             
+
+        }
+
+        [HttpPost("crear/empresa")]
+        public async Task<IActionResult> CrearEmpresa(
+           [FromHeader] string usuario,
+           [FromHeader] string token,
+           [FromBody] CrearEmpresaRequest RequestEmpresa)
+        {
+
+
+            var result = await _personaService.CrearEmpresa(usuario, token, RequestEmpresa);
+
+
+            if (!string.IsNullOrEmpty(result.ErrorMessage))
+            {
+                return StatusCode(500, new { message = result.ErrorMessage });
+            }
+
+            if (result.Success && result.Content != null)
+            {
+                return StatusCode(200, JsonSerializer.Deserialize<object>(result.Content));
+            }
+            else
+            {
+                return StatusCode(400, JsonSerializer.Deserialize<object>(result.Content));
+            }
+
+
 
         }
 
